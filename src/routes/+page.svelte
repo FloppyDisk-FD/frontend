@@ -5,7 +5,7 @@
   let animes = [];
 
   // Ensure PUBLIC_API_URL is correctly set
-  const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:3000'; // Fallback to local development URL if not set
+  const API_URL = process.env.PUBLIC_API_URL || 'http://localhost:5000'; // Fallback to local development URL if not set
 
   console.log('API_URL:', API_URL); // Debugging line to check the value of API_URL
 
