@@ -1,13 +1,15 @@
 <script>
   import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
   import "../app.css";
   import { PUBLIC_API_URL } from '$env/static/public';
+
   let periods = [];
   let selectedPeriod = null;
   let animes = [];
 
   // Ensure PUBLIC_API_URL is correctly set
-  const API_URL = PUBLIC_API_URL || 'http://localhost:5000';
+  const API_URL = PUBLIC_API_URL;// Fallback to local development URL if not set
 
   console.log('API_URL:', API_URL); // Debugging line to check the value of API_URL
 
@@ -146,8 +148,8 @@
     {:else}
       <div class="anime-card-container">
         {#each animes as anime}
-          <div class="material-card" style="position: relative;">
-            <img src={anime.poster_url} alt={`${anime.title} poster`} class="anime-poster" />
+          <div class="material-card" on:click={() => goto(`/anime/${anime.id}`)} style="position: relative;">
+            <img src={anime.poster_url} referrerpolicy="no-referrer" alt={`${anime.title} poster`} class="anime-poster" />
             <div class="anime-details">
               <h3 class="anime-title">{anime.title}</h3>
               <p><strong>Genre:</strong> {anime.genre}</p>
@@ -159,6 +161,8 @@
         {/each}
       </div>
     {/if}
+  {:else}
+    <p>Select a period to view animes.</p>
   {/if}
 </div>
 
