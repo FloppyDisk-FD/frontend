@@ -85,11 +85,11 @@
     {:else}
       {#each animes as anime}
         <div class="anime-card">
-          <img src={anime.poster_url} alt={`${anime.title} poster`} class="anime-poster" />
+          <img src={anime.poster_url} referrerpolicy="no-referrer" alt={`${anime.title} poster`} class="anime-poster" />
           <div>
             <h3>{anime.title}</h3>
-            <p><strong>Genre:</strong> {anime.genre}</p>
-            <p><strong>Production Info:</strong> {anime.production_info}</p>
+            <p><strong>类型:</strong> {anime.genre}</p>
+            <p><strong>制作信息:</strong> {anime.production_info}</p>
           </div>
         </div>
       {/each}
