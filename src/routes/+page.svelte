@@ -1,10 +1,12 @@
 <script>
   import { onMount } from 'svelte';
+  import { PUBLIC_API_URL } from '$env/static/public';
   let periods = [];
   let selectedPeriod = null;
   let animes = [];
 
-  const API_URL = process.env.PUBLIC_API_URL || 'http://localhost:5000'; // Fallback to local development URL if not set
+  // Ensure PUBLIC_API_URL is correctly set
+  const API_URL = PUBLIC_API_URL || 'http://localhost:3000'; // Fallback to local development URL if not set
 
   console.log('API_URL:', API_URL); // Debugging line to check the value of API_URL
 
