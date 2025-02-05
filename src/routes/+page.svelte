@@ -4,16 +4,35 @@
   let selectedPeriod = null;
   let animes = [];
 
-  const API_URL = import.meta.env.PUBLIC_API_URL;
+  // Ensure PUBLIC_API_URL is correctly set
+  const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:3000'; // Fallback to local development URL if not set
+
+  console.log('API_URL:', API_URL); // Debugging line to check the value of API_URL
 
   async function fetchPeriods() {
-    const response = await fetch(`${API_URL}/api/periods`);
-    return response.json();
+    try {
+      const response = await fetch(`${API_URL}/api/periods`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    } catch (error) {
+      console.error('Error fetching periods:', error);
+      return [];
+    }
   }
 
   async function fetchAnimes(period) {
-    const response = await fetch(`${API_URL}/api/animes/${period}`);
-    return response.json();
+    try {
+      const response = await fetch(`${API_URL}/api/animes/${period}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    } catch (error) {
+      console.error('Error fetching animes:', error);
+      return [];
+    }
   }
 
   onMount(async () => {
