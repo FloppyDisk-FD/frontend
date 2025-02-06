@@ -56,71 +56,30 @@
     --md-sys-elevation-level-1: 0px 2px 8px rgba(0, 0, 0, 0.1);
     --md-sys-elevation-level-2: 0px 4px 12px rgba(0, 0, 0, 0.15);
   }
-
-  .detail-container {
-    background-color: var(--md-sys-color-surface);
-    color: var(--md-sys-color-on-surface);
-    border-radius: 16px;
-    box-shadow: var(--md-sys-elevation-level-1);
-    padding: 16px;
-    margin: 16px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .anime-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 16px;
-    color: var(--md-sys-color-primary);
-  }
-
-  .anime-poster {
-    width: 300px; /* Adjusted width */
-    height: auto;
-    object-fit: cover;
-    margin-bottom: 16px;
-    border-radius: 8px;
-  }
-
-  .anime-info {
-    margin-bottom: 16px;
-  }
-
-  .anime-description {
-    margin-bottom: 16px;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-
-  p {
-    margin-bottom: 8px;
-  }
 </style>
 
 {#if anime}
-  <div class="detail-container">
-    <h1 class="anime-title">{anime.title}</h1>
-    <img src={anime.poster_url} referrerpolicy="no-referrer" alt={`${anime.title} poster`} class="anime-poster" />
-    <div class="anime-info">
-      <p><strong>Genre:</strong> {anime.genre}</p>
-      <p><strong>Production Info:</strong> {anime.production_info}</p>
-      <p><strong>Makers:</strong> {anime.producers}</p>
-      <p><strong>Air Day:</strong> {anime.air_day}</p>
-    </div>
-    <div class="anime-description">
-      <h2>Description</h2>
-      <p>{anime.description}</p>
+  <div class="container mx-auto p-4 bg-gray-100">
+    <div class="bg-white rounded-xl shadow-md p-6 max-w-2xl mx-auto">
+      <h1 class="text-4xl font-bold mb-4 text-blue-600">{anime.title}</h1>
+      <img src={anime.poster_url} referrerpolicy="no-referrer" alt={`${anime.title} poster`} class="w-full h-auto object-cover rounded-xl mb-4" style="width: 300px;" />
+      <div class="space-y-2">
+        <p><strong>分类:</strong> {anime.genre}</p>
+        <p><strong>Production Info:</strong> {anime.production_info}</p>
+        <p><strong>类型:</strong> {anime.type}</p>
+        <p><strong>放送星期:</strong> {anime.air_day}</p>
+      </div>
+      <div class="mt-4">
+        <h2 class="text-2xl font-bold mb-2 ">Description</h2>
+        <div class="whitespace-pre-wrap">{anime.description}</div>
+      </div>
     </div>
   </div>
 {:else}
-  <div class="detail-container">
-    <p>Loading...</p>
+  <div class="container mx-auto p-4 bg-gray-100">
+    <div class="bg-white rounded-xl shadow-md p-6 max-w-2xl mx-auto">
+      <p>Loading...</p>
+    </div>
   </div>
 {/if}
 

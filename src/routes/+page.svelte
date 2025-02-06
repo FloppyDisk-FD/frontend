@@ -124,7 +124,7 @@
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 4px 8px;
-    border-radius: 4px;
+    border-radius: 8px;
     font-size: 12px;
   }
 </style>
@@ -152,9 +152,9 @@
             <img src={anime.poster_url} referrerpolicy="no-referrer" alt={`${anime.title} poster`} class="anime-poster" />
             <div class="anime-details">
               <h3 class="anime-title">{anime.title}</h3>
-              <p><strong>Genre:</strong> {anime.genre}</p>
+              <p><strong>分类:</strong> {anime.genre}</p>
               <p><strong>Production Info:</strong> {anime.production_info}</p>
-              <p><strong>Makers:</strong> {anime.producers}</p>
+              <p><strong>类型:</strong> {anime.type}</p>
             </div>
             <div class="air-day">{anime.air_day}</div>
           </div>
