@@ -32,6 +32,7 @@
       const animeId = params.id;
       fetchAnimeById(animeId).then(data => {
         anime = data;
+        anime.description = anime.description.replace(/\\n/g, '\n');
       });
     });
   });
@@ -55,6 +56,9 @@
     --md-sys-color-on-surface: #000000;
     --md-sys-elevation-level-1: 0px 2px 8px rgba(0, 0, 0, 0.1);
     --md-sys-elevation-level-2: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .whitespace-pre-wrap {
+    white-space: pre-wrap; /* 保留空白符序列，但是正常地进行换行 */
   }
 </style>
 
