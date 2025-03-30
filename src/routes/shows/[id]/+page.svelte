@@ -6,9 +6,11 @@
   </script>
   
   <div class="p-4 md:p-8">
-    <button on:click={() => window.history.back()}>
-        <Arrowleft class="w-5 h-5 mr-2" />返回
-      </button>
+    <button 
+      on:click={() => window.history.back()} 
+      class="flex items-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-1 px-2 my-1 rounded-lg transition-colors duration-300">
+      <Arrowleft class="w-5 h-5 mr-2" />返回
+    </button>
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="md:col-span-1">
@@ -16,7 +18,7 @@
           src={data.show.cover} 
           alt={data.show.title} 
           referrerpolicy="no-referrer"
-          class="w-full aspect-[4/3] md:aspect-video object-cover rounded-lg shadow-lg"
+          class="w-full aspect-[3/4] object-cover rounded-lg shadow-lg"
         />
       </div>
       <div class="md:col-span-2">

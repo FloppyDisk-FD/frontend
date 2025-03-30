@@ -19,7 +19,7 @@
       src={show.cover} 
       alt={show.title} 
       referrerpolicy="no-referrer"
-      class="w-full aspect-video object-cover transition-opacity duration-300 group-hover:opacity-90"
+      class="w-full aspect-video md:aspect-3/4 object-cover transition-opacity duration-300 group-hover:opacity-90"
       loading="lazy"
     />
     <div class="p-4">

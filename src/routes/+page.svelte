@@ -4,7 +4,7 @@
     import AnimeCard from '$lib/components/AnimeCard.svelte';
   </script>
   
-  <div class="p-4 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+  <div class="p-4 grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
     {#each data.shows as show}
       <AnimeCard {show} />
     {/each}
