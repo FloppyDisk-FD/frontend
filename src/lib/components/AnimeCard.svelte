@@ -14,6 +14,12 @@
   <div 
     class="group cursor-pointer overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
     on:click={() => goto(`/shows/${show.id}`)}
+    on:mouseenter={() => {  // 添加鼠标悬停预加载
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = `/shows/${show.id}`;
+      document.head.appendChild(link);
+    }}
   >
     <img 
       src={show.cover} 

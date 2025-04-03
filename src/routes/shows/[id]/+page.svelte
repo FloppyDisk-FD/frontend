@@ -3,6 +3,12 @@
     export let data;
     import StaffInfoGrid from '$lib/components/StaffInfoGrid.svelte';
     import  Arrowleft  from '@designthen/svelte-icons/heroicon-24-outline/arrow-left-circle.svelte';
+    import { onMount } from 'svelte';
+    onMount(() => {
+    // 预加载LCP图片
+      const img = new Image();
+      img.src = data.show.cover;
+    });
   </script>
   
   <div class="p-4 md:p-8">
@@ -19,6 +25,9 @@
           alt={data.show.title} 
           referrerpolicy="no-referrer"
           class="w-full aspect-[3/4] object-cover rounded-lg shadow-lg"
+          loading="eager"  
+          decoding="async" 
+          fetchpriority="high"
         />
       </div>
       <div class="md:col-span-2">

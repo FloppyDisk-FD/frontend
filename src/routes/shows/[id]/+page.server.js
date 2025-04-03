@@ -3,7 +3,13 @@ export const load = async (event) => {
     try {
       const { params } = event;
       const apiBase = import.meta.env.VITE_API_URL;
-      const res = await event.fetch(`${apiBase}/api/shows/${params.id}`);
+      
+      // 添加缓存控制头
+      const res = await event.fetch(`${apiBase}/api/shows/${params.id}`, {
+        headers: {
+          'Cache-Control': 'max-age=300' // 5分钟缓存
+        }
+      });
       
       // 验证响应状态
       if (!res.ok) {
